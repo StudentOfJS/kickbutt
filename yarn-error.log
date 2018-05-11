@@ -1,5 +1,5 @@
 Arguments: 
-  /home/rod/.nvm/versions/node/v8.4.0/bin/node /home/rod/.nvm/versions/node/v8.4.0/bin/yarn build_contract
+  /home/rod/.nvm/versions/node/v8.4.0/bin/node /home/rod/.nvm/versions/node/v8.4.0/bin/yarn test
 
 PATH: 
   /home/rod/.nvm/versions/node/v8.4.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/go/bin:/usr/local/go/bin:/usr/local/go/bin:/home/rod/Android/Sdk/tools:/home/rod/Android/Sdk/platform-tools:/home/rod/Android/Sdk/tools:/home/rod/Android/Sdk/platform-tools
@@ -21,7 +21,7 @@ npm manifest:
     "license": "MIT",
     "scripts": {
       "test": "mocha",
-      "build_contract": "node compile.js"
+      "build_contract": "node ethereum/compile.js"
     },
     "dependencies": {
       "fs-extra": "^6.0.1",
@@ -6158,7 +6158,7 @@ Trace:
   Error: Command failed.
   Exit code: 1
   Command: sh
-  Arguments: -c node compile.js
+  Arguments: -c mocha
   Directory: /home/rod/ethereum/kickbutt
   Output:
   
