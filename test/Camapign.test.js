@@ -96,7 +96,7 @@ describe("Camapigns", () => {
     balance = web3.utils.fromWei(balance, 'ether')
     balance = parseFloat(balance)
     console.log(balance)
-    assert(balance > 100)
+    assert(balance > 104)
   })
 
 })
