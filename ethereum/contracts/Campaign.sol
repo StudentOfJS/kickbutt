@@ -15,7 +15,7 @@ contract CampaignFactory {
 contract Campaign {
     struct Request {
         string description;
-        uint32 value;
+        uint value;
         address recipient;
         bool complete;
         uint256 approvalCount;
@@ -44,16 +44,15 @@ contract Campaign {
         approversCount++;
     }
     
-    function createRequest(string description, uint32 value, address recipient)
-      public restricted {
-        require(approvers[msg.sender]);
+    function createRequest(string description, uint value, address recipient) public restricted {
         Request memory newRequest = Request({
             description: description,
             value: value,
             recipient: recipient,
             complete: false,
             approvalCount: 0
-        });  
+        });
+
         requests.push(newRequest);
     }
     

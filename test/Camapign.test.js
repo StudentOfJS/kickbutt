@@ -15,7 +15,7 @@ beforeEach(async () => {
     .deploy({ data: compiledFactory.bytecode })
     .send({ from: accounts[0], gas: '1000000' })
 
-  await factory.methods.createCampaign('100').send({
+  await factory.methods.createCampaign('101').send({
     from: accounts[0],
     gas: '1000000',
   });
@@ -58,5 +58,16 @@ describe("Camapigns", () => {
     } catch (error) {
       assert(error)
     }
+  })
+
+  it('allows a manager to make a payment request', async () => {
+    await campaign.methods
+      .createRequest('Buy cloth', '101', accounts[1])
+      .send({
+        from: accounts[0],
+        gas: '1000000'
+      });
+    const request = await campaign.methods.requests(0).call();
+    assert.equal('Buy cloth', request.description)
   })
 })
