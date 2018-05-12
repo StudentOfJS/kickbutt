@@ -21,8 +21,11 @@ const deploy = async () => {
 
   try {
     const result = await new web3.eth.Contract(JSON.parse(compiledFactory.interface))
-      .deploy({ data: compiledFactory.bytecode })
-      .send({ gas: '5000000', from: accounts[0] });
+      .deploy({ data: `0x${compiledFactory.bytecode}` })
+      .send({
+        gas: '1000000',
+        from: accounts[0]
+      });
 
     console.log('Contract deployed to', result.options.address);
   } catch (error) {
@@ -30,3 +33,4 @@ const deploy = async () => {
   }
 };
 deploy();
+
